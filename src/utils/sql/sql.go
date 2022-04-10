@@ -45,6 +45,7 @@ func Init(cfg Config, log log.Logger) Interface {
 		log:     log,
 	}
 	sql.initDB()
+
 	return sql
 }
 

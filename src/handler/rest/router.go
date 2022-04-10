@@ -36,6 +36,7 @@ func Init(conf config.Application, configreader configreader.Interface, log logC
 		uc:           uc,
 	}
 	r.Register()
+
 	return r
 }
 

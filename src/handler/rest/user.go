@@ -17,5 +17,6 @@ func (r *rest) CreateUser(ctx *gin.Context, trx entity.Transaction) entity.Trans
 		}
 		trx.User[i] = Usr
 	}
+
 	return trx
 }

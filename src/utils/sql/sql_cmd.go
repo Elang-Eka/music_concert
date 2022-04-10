@@ -28,11 +28,11 @@ func initCommand(db *sqlx.DB) Command {
 }
 
 func (c *command) Begin(ctx context.Context) (CommandTx, error) {
-	// return c.db.initTx(ctx), nil
 	tx, err := c.db.BeginTxx(ctx, nil)
 	if err != nil {
 		return nil, err
 	}
+
 	return initTx(ctx, tx), nil
 }
 

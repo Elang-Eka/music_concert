@@ -5,7 +5,6 @@ import (
 	"azura-test/src/entity"
 	"azura-test/src/utils/sql"
 	"context"
-	"fmt"
 )
 
 type Interface interface {
@@ -72,12 +71,12 @@ func (u *user) GetMyTicket(ctx context.Context, user entity.UserTicket) ([]entit
 	for rows.Next() {
 		ticket := entity.Ticket{}
 		if err = rows.StructScan(&ticket); err != nil {
-			fmt.Println("Akhirnya ketemu error")
 			u.log.LogError(err.Error())
 			return nil, err
 		}
 		Ticket = append(Ticket, ticket)
 	}
+
 	return Ticket, nil
 }
 

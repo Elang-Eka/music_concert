@@ -11,6 +11,7 @@ import (
 type CommandTx interface {
 	Commit() error
 	Rollback() error
+	NamedExec(name string, query string, args interface{}) (sql.Result, error)
 	Exec(string, ...interface{}) (sql.Result, error)
 }
 
@@ -32,6 +33,10 @@ func (x *commandTx) Commit() error {
 
 func (x *commandTx) Rollback() error {
 	return x.tx.Rollback()
+}
+
+func (x *commandTx) NamedExec(name string, query string, args interface{}) (sql.Result, error) {
+	return x.tx.NamedExecContext(x.ctx, query, args)
 }
 
 func (x *commandTx) Exec(query string, args ...interface{}) (sql.Result, error) {

@@ -3,7 +3,6 @@ package envreaders
 import (
 	log "azura-test/src/business/usecases/log"
 	"bufio"
-	"fmt"
 	"os"
 	"strings"
 )
@@ -30,17 +29,8 @@ func Init(opt Options) Interface {
 
 // Load is load configs from a env file.
 func (e *envReader) Load(logger log.Logger) {
-	// Cek dir saat ini
-	// pwd, err := os.Getwd()
-	// if err != nil {
-	// 	fmt.Println(err)
-	// 	os.Exit(1)
-	// }
-	// fmt.Println(pwd)
-
 	f, err := os.Open(e.opt.Name)
 	if err != nil {
-		fmt.Println(err.Error())
 		logger.LogError("%s", err)
 	}
 	defer f.Close()
