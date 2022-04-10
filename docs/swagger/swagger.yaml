@@ -1,0 +1,238 @@
+definitions:
+  entity.Event:
+    properties:
+      date:
+        type: string
+      id:
+        type: integer
+      location:
+        type: string
+      name:
+        type: string
+      organizer:
+        type: string
+      price:
+        type: integer
+      time:
+        type: string
+    type: object
+  entity.HTTPMessage:
+    properties:
+      body:
+        type: string
+      title:
+        type: string
+    type: object
+  entity.HTTPResp:
+    properties:
+      data: {}
+      message:
+        $ref: '#/definitions/entity.HTTPMessage'
+      metadata:
+        $ref: '#/definitions/entity.Meta'
+    type: object
+  entity.Meta:
+    properties:
+      error:
+        $ref: '#/definitions/entity.MetaError'
+      message:
+        type: string
+      path:
+        type: string
+      status:
+        type: string
+      statusCode:
+        type: integer
+      timestamp:
+        type: string
+    type: object
+  entity.MetaError:
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+    type: object
+  entity.Ticket:
+    properties:
+      code:
+        type: integer
+      date:
+        type: string
+      location:
+        type: string
+      name:
+        type: string
+      organizer:
+        type: string
+    type: object
+  entity.Transaction:
+    properties:
+      action:
+        type: string
+      code:
+        type: integer
+      event_id:
+        type: integer
+      id:
+        type: integer
+      payment_method:
+        type: string
+      quantity:
+        type: integer
+      total_price:
+        type: integer
+      transaction_date:
+        type: string
+      user:
+        items:
+          $ref: '#/definitions/entity.User'
+        type: array
+    type: object
+  entity.User:
+    properties:
+      age:
+        type: integer
+      email:
+        type: string
+      gender:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      transaction_id:
+        type: integer
+    type: object
+  entity.UserTicket:
+    properties:
+      age:
+        type: integer
+      email:
+        type: string
+      gender:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      ticket:
+        items:
+          $ref: '#/definitions/entity.Ticket'
+        type: array
+      transaction_id:
+        type: integer
+    type: object
+info:
+  contact: {}
+paths:
+  /booking:
+    post:
+      consumes:
+      - application/json
+      description: This api to book ticket concert
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/entity.HTTPResp'
+            - properties:
+                data:
+                  $ref: '#/definitions/entity.Transaction'
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/entity.HTTPResp'
+      summary: Booking Ticket
+      tags:
+      - Ticket
+  /event:
+    get:
+      description: Get list of event
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/entity.HTTPResp'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/entity.Event'
+                  type: array
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/entity.HTTPResp'
+      summary: Get Event
+      tags:
+      - Event
+  /payment:
+    put:
+      consumes:
+      - application/json
+      description: This API to input payment from user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/entity.HTTPResp'
+            - properties:
+                data:
+                  $ref: '#/definitions/entity.Transaction'
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/entity.HTTPResp'
+      summary: Update Transaction
+      tags:
+      - Ticket
+  /ping:
+    get:
+      description: This endpoint will hit the server
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: PONG!
+          schema:
+            type: string
+      summary: Health Check
+      tags:
+      - Server
+  /ticket/{email}:
+    get:
+      description: For users to know the number of tickets
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/entity.HTTPResp'
+            - properties:
+                data:
+                  items:
+                    $ref: '#/definitions/entity.UserTicket'
+                  type: array
+              type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/entity.HTTPResp'
+      summary: Get Ticket user
+      tags:
+      - Ticket
+swagger: "2.0"
