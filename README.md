@@ -18,7 +18,7 @@ go run main.go
 
 Request : 
 ```
-GET http://localhost:8080/event
+GET http://localhost:8080/ping
 ```
 Response :
 "200"
@@ -78,6 +78,21 @@ Image :
 ![image](https://user-images.githubusercontent.com/54503473/162560361-786368fe-898e-4d4e-8c8d-3972d5eee2bf.png)
 
 3. Booking Ticket
+
+Input :
+```
+{
+  "event_id":1,
+  "quantity":1,
+  "payment_method":"BNI",
+  "User":[{
+    "name":"Endy",
+    "age": 22,
+    "gender":"male",
+    "email":"endy@gmail.com"
+  }]
+}
+```
 Request : 
 ```
 POST http://localhost:8080/booking
@@ -95,36 +110,45 @@ Response :
         "statusCode": 200,
         "status": "OK",
         "message": "POST /booking [200] OK",
-        "timestamp": "2022-04-09T13:54:49+07:00"
+        "timestamp": "2022-04-09T14:19:00+07:00"
     },
     "data": {
-        "id": 6,
+        "id": 1,
         "event_id": 1,
         "transaction_date": "0001-01-01T00:00:00Z",
-        "quantity": 3,
-        "total_price": 450903,
+        "quantity": 1,
+        "total_price": 150807,
         "payment_method": "BNI",
-        "action": "",
-        "code": 82241,
+        "action": "waiting",
+        "code": 23701,
         "User": [
             {
-                "id": 10,
+                "id": 1,
                 "name": "Endy",
                 "age": 22,
                 "gender": "male",
                 "email": "endy@gmail.com",
-                "transaction_id": 6
+                "transaction_id": 1
             }
         ]
     }
 }
 ```
 Image :
-![image](https://user-images.githubusercontent.com/54503473/162560689-8217d00e-53a9-410d-b59a-51b599ae05bb.png)
-![image](https://user-images.githubusercontent.com/54503473/162560743-43019b47-ec4d-4188-8756-ee27bac61f42.png)
+![image](https://user-images.githubusercontent.com/54503473/162561409-df4a79f3-1636-408d-b58a-760fc5025495.png)
+![image](https://user-images.githubusercontent.com/54503473/162561427-4881b2b8-0a8b-48cd-8420-394428dd921f.png)
+
 
 4. Pay ticket
 
+Input :
+```
+{
+  "code":53203,
+  "payment_method":"Mandiri",
+  "total_price": 150489
+}
+```
 Request : 
 ```
 PUT http://localhost:8080/payment
@@ -176,3 +200,94 @@ Image :
 "500"
 ![image](https://user-images.githubusercontent.com/54503473/162561053-9c19a8b9-3de2-47b4-98f7-39d93e56f39c.png)
 
+5. View User Ticket
+
+Input :
+```
+http://localhost:8080/ticket/:endy@gmail.com
+```
+
+Request : 
+```
+GET http://localhost:8080/ticket/:email
+```
+Response :
+"200"
+```
+{
+    "message": {
+        "title": "OK",
+        "body": "Request successful"
+    },
+    "metadata": {
+        "path": "localhost:8080/ticket/endy@gmail.com",
+        "statusCode": 200,
+        "status": "OK",
+        "message": "GET /ticket/endy@gmail.com [200] OK",
+        "timestamp": "2022-04-10T08:23:53+07:00"
+    },
+    "data": {
+        "id": 1,
+        "name": "Endy",
+        "age": 22,
+        "gender": "Male",
+        "email": "endy@gmail.com",
+        "transaction_id": 1,
+        "Ticket": [
+            {
+                "code": 15181,
+                "name": "Song Festival 2022",
+                "location": "Kediri",
+                "date": "2022-07-30T00:00:00Z",
+                "organizer": "PT. Gudang Garam Tbk."
+            },
+            {
+                "code": 53203,
+                "name": "Metalica",
+                "location": "Kediri",
+                "date": "2022-04-09T00:00:00Z",
+                "organizer": "PT. Gudang Garam Tbk"
+            }
+        ]
+    }
+}
+```
+Response : "500"
+```
+{
+    "message": {
+        "title": "Error",
+        "body": "Request failure"
+    },
+    "metadata": {
+        "path": "localhost:8080/payment",
+        "statusCode": 500,
+        "status": "Internal Server Error",
+        "message": "PUT /payment [500] Internal Server Error",
+        "timestamp": "2022-04-09T14:05:42+07:00",
+        "error": {
+            "code": 500,
+            "message": "Event Ticket Expired! Please order again"
+        }
+    }
+}
+```
+
+Image :
+
+"200":
+![image](https://user-images.githubusercontent.com/54503473/162597185-3730a53a-c712-4342-8519-34d7c82d7773.png)
+![image](https://user-images.githubusercontent.com/54503473/162597190-de91ec97-ed9d-4673-850c-775ce090af1f.png)
+
+
+"500":
+![image](https://user-images.githubusercontent.com/54503473/162597201-c0a59749-0e7a-4e18-9e00-251ef5df28a5.png)
+
+6. Swagger
+
+Documentation in swagger
+
+Request : 
+```
+GET http://localhost:8080/swagger/index.html
+```
