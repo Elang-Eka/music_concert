@@ -291,3 +291,6 @@ Request :
 ```
 GET http://localhost:8080/swagger/index.html
 ```
+
+Image : 
+![image](https://user-images.githubusercontent.com/54503473/162610869-88e497fd-8e6a-4ea1-a48d-07482da2025a.png)
