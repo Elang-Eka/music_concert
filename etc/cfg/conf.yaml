@@ -1,0 +1,18 @@
+Meta:
+  title: "Azure Labs - Test"
+  description: "Test For BE Azure Labs"
+  host: "localhost:8080"
+  basePath: "/"
+  version: "localhost"
+Gin:
+  Port: "8080"
+  Swagger:
+    Enabled: true
+    Path: "/swagger"
+SQL:
+  Driver: "mysql"
+  Host: "localhost"
+  Port: "3306"
+  DB: "azura_labs"
+  User: "root"
+  Password: ""
