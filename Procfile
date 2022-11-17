@@ -1,1 +1,1 @@
-web: golang-heroku
+web: go run main.go
