@@ -28,9 +28,9 @@ func Init(opt Options) Interface {
 	vp.SetConfigType(opt.Type)
 	vp.AddConfigPath(opt.Path)
 	if err := vp.ReadInConfig(); err != nil {
-		fmt.Println(opt.Name)
-		fmt.Println(opt.Type)
-		fmt.Println(opt.Path)
+		fmt.Println("Name :", opt.Name)
+		fmt.Println("Type :", opt.Type)
+		fmt.Println("Path :", opt.Path)
 		panic(fmt.Errorf("fatal error found during reading file. err: %w", err))
 	}
 
