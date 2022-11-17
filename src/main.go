@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"golang-heroku/src/business/domain"
 	"golang-heroku/src/business/usecases"
 	"golang-heroku/src/handler/rest"
@@ -14,6 +15,7 @@ import (
 )
 
 func main() {
+	fmt.Println("HAIIII")
 	cfg := config.Init()
 	confreader := configreader.Init(configreader.Options{
 		Name: "conf",
@@ -37,6 +39,8 @@ func main() {
 	cfg.SQL.Host = os.Getenv("DB_HOST")
 	cfg.SQL.DB = os.Getenv("DB_NAME")
 	cfg.SQL.Port = os.Getenv("DB_PORT")
+
+	fmt.Printf("%+v\n", cfg)
 
 	log := logger.Init()
 

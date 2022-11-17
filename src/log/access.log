@@ -19,3 +19,6 @@
 2022/11/17 08:12:46 SQL: [LEADER] driver= db= @:
 2022/11/17 08:16:59 SQL: [LEADER] driver= db= @:
 2022/11/17 09:17:16 SQL: [LEADER] driver= db= @:
+2022/11/17 20:34:21 SQL: [LEADER] driver= db= @:
+2022/11/17 20:52:33 SQL: [LEADER] driver=postgres db=golang_heroku @localhost:5432
+2022/11/17 20:57:35 SQL: [LEADER] driver=postgres db=golang_heroku @localhost:5432

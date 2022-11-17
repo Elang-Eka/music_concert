@@ -1,6 +1,7 @@
 package logger
 
 import (
+	"fmt"
 	logCase "golang-heroku/src/business/usecases/log"
 	"io"
 	"log"
@@ -17,8 +18,9 @@ func Init() logCase.Logger {
 
 // LogError is print messages to log.
 func (l *Logger) LogError(format string, v ...interface{}) {
-	file, err := os.OpenFile("log/error.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+	file, err := os.OpenFile("../src/log/error.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
+		fmt.Println("Errorrrr....")
 		log.Printf("%s", err)
 	}
 	defer file.Close()
@@ -31,7 +33,7 @@ func (l *Logger) LogError(format string, v ...interface{}) {
 
 // LogAccess is print messages to log.
 func (l *Logger) LogAccess(format string, v ...interface{}) {
-	file, err := os.OpenFile("log/access.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+	file, err := os.OpenFile("../src/log/access.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
 		log.Printf("%s", err)
 	}
