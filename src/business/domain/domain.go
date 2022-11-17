@@ -1,11 +1,11 @@
 package domain
 
 import (
-	"azura-test/src/business/domain/event"
-	"azura-test/src/business/domain/transaction"
-	"azura-test/src/business/domain/user"
-	log "azura-test/src/business/usecases/log"
-	"azura-test/src/utils/sql"
+	"golang-heroku/src/business/domain/event"
+	"golang-heroku/src/business/domain/transaction"
+	"golang-heroku/src/business/domain/user"
+	log "golang-heroku/src/business/usecases/log"
+	"golang-heroku/src/utils/sql"
 )
 
 type Domains struct {

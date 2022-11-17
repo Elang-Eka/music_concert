@@ -1,12 +1,12 @@
 package rest
 
 import (
-	"azura-test/docs/swagger"
-	"azura-test/src/business/usecases"
-	logCase "azura-test/src/business/usecases/log"
-	"azura-test/src/utils/config"
-	"azura-test/src/utils/configreader"
 	"fmt"
+	"golang-heroku/docs/swagger"
+	"golang-heroku/src/business/usecases"
+	logCase "golang-heroku/src/business/usecases/log"
+	"golang-heroku/src/utils/config"
+	"golang-heroku/src/utils/configreader"
 
 	"github.com/gin-gonic/gin"
 	swaggerfiles "github.com/swaggo/files"

@@ -1,25 +1,42 @@
 package main
 
 import (
-	"azura-test/src/business/domain"
-	"azura-test/src/business/usecases"
-	"azura-test/src/handler/rest"
-	"azura-test/src/utils/config"
-	"azura-test/src/utils/configreader"
-	logger "azura-test/src/utils/logger"
-	"azura-test/src/utils/sql"
+	"golang-heroku/src/business/domain"
+	"golang-heroku/src/business/usecases"
+	"golang-heroku/src/handler/rest"
+	"golang-heroku/src/utils/config"
+	"golang-heroku/src/utils/configreader"
+	logger "golang-heroku/src/utils/logger"
+	"golang-heroku/src/utils/sql"
+	"os"
 
 	_ "github.com/go-sql-driver/mysql"
 )
 
 func main() {
 	cfg := config.Init()
-	configreader := configreader.Init(configreader.Options{
+	confreader := configreader.Init(configreader.Options{
 		Name: "conf",
 		Type: "yaml",
 		Path: "../etc/cfg",
 	})
-	configreader.ReadConfig(&cfg)
+	confreader.ReadConfig(&cfg)
+
+	// err := godotenv.Load("../.env")
+	// if err != nil {
+	// 	log.Fatal("Error loading .env file")
+	// }
+
+	// if !files.IsExist(godotenv.Load("../.env")) {
+
+	// }
+
+	cfg.SQL.Driver = os.Getenv("DB_DRIVER")
+	cfg.SQL.User = os.Getenv("DB_USER")
+	cfg.SQL.Password = os.Getenv("DB_PASS")
+	cfg.SQL.Host = os.Getenv("DB_HOST")
+	cfg.SQL.DB = os.Getenv("DB_NAME")
+	cfg.SQL.Port = os.Getenv("DB_PORT")
 
 	log := logger.Init()
 
@@ -29,6 +46,6 @@ func main() {
 
 	uc := usecases.Init(log, d)
 
-	r := rest.Init(cfg, configreader, log, uc)
+	r := rest.Init(cfg, confreader, log, uc)
 	r.Run()
 }

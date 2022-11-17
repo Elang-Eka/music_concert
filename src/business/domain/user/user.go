@@ -1,16 +1,17 @@
 package user
 
 import (
-	log "azura-test/src/business/usecases/log"
-	"azura-test/src/entity"
-	"azura-test/src/utils/sql"
 	"context"
+	log "golang-heroku/src/business/usecases/log"
+	"golang-heroku/src/entity"
+	"golang-heroku/src/utils/sql"
 )
 
 type Interface interface {
 	FindUser(ctx context.Context, email string) (entity.UserTicket, error)
 	CreateUser(ctx context.Context, user entity.User, trx_id int) (entity.User, error)
 	GetMyTicket(ctx context.Context, user entity.UserTicket) ([]entity.Ticket, error)
+	Unit() int
 }
 
 type user struct {
@@ -93,4 +94,12 @@ func (u *user) FindUser(ctx context.Context, email string) (entity.UserTicket, e
 	}
 
 	return user, nil
+}
+
+func (u *user) Unit() int {
+	return 11
+}
+
+func Coba() string {
+	return "Diterima"
 }

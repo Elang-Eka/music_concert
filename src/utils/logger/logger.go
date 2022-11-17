@@ -1,7 +1,7 @@
 package logger
 
 import (
-	logCase "azura-test/src/business/usecases/log"
+	logCase "golang-heroku/src/business/usecases/log"
 	"io"
 	"log"
 	"os"

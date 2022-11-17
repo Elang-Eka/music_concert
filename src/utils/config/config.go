@@ -1,6 +1,6 @@
 package config
 
-import "azura-test/src/utils/sql"
+import "golang-heroku/src/utils/sql"
 
 type Application struct {
 	Gin  GinConfig

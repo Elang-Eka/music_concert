@@ -1,10 +1,10 @@
 package user
 
 import (
-	userDom "azura-test/src/business/domain/user"
-	log "azura-test/src/business/usecases/log"
-	"azura-test/src/entity"
 	"context"
+	userDom "golang-heroku/src/business/domain/user"
+	log "golang-heroku/src/business/usecases/log"
+	"golang-heroku/src/entity"
 )
 
 type Interface interface {

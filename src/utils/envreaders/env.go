@@ -1,8 +1,8 @@
 package envreaders
 
 import (
-	log "azura-test/src/business/usecases/log"
 	"bufio"
+	log "golang-heroku/src/business/usecases/log"
 	"os"
 	"strings"
 )

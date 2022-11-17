@@ -1,11 +1,11 @@
 package usecases
 
 import (
-	"azura-test/src/business/domain"
-	"azura-test/src/business/usecases/event"
-	log "azura-test/src/business/usecases/log"
-	"azura-test/src/business/usecases/transaction"
-	"azura-test/src/business/usecases/user"
+	"golang-heroku/src/business/domain"
+	"golang-heroku/src/business/usecases/event"
+	log "golang-heroku/src/business/usecases/log"
+	"golang-heroku/src/business/usecases/transaction"
+	"golang-heroku/src/business/usecases/user"
 )
 
 type Usecases struct {

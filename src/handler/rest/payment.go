@@ -1,7 +1,7 @@
 package rest
 
 import (
-	"azura-test/src/entity"
+	"golang-heroku/src/entity"
 	"net/http"
 	"time"
 

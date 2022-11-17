@@ -1,10 +1,10 @@
 package event
 
 import (
-	eventDom "azura-test/src/business/domain/event"
-	log "azura-test/src/business/usecases/log"
-	"azura-test/src/entity"
 	"context"
+	eventDom "golang-heroku/src/business/domain/event"
+	log "golang-heroku/src/business/usecases/log"
+	"golang-heroku/src/entity"
 )
 
 type Interface interface {

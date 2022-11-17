@@ -1,10 +1,10 @@
 package transaction
 
 import (
-	transactionDom "azura-test/src/business/domain/transaction"
-	log "azura-test/src/business/usecases/log"
-	"azura-test/src/entity"
 	"context"
+	transactionDom "golang-heroku/src/business/domain/transaction"
+	log "golang-heroku/src/business/usecases/log"
+	"golang-heroku/src/entity"
 )
 
 type Interface interface {

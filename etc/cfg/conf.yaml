@@ -9,10 +9,3 @@ Gin:
   Swagger:
     Enabled: true
     Path: "/swagger"
-SQL:
-  Driver: "mysql"
-  Host: "localhost"
-  Port: "3306"
-  DB: "azura_labs"
-  User: "root"
-  Password: ""

@@ -1,0 +1,16 @@
+2022/11/17 06:55:17 [FATAL] can not connect to db  leader:  on port %!d(string=), with error sql: unknown driver "" (forgotten import?)
+2022/11/17 06:58:20 [FATAL] can not connect to db  leader:  on port %!d(string=), with error sql: unknown driver "" (forgotten import?)
+2022/11/17 07:08:03 [FATAL] can not connect to db golang_heroku leader: localhost on port %!d(string=5432), with error sql: unknown driver "postgres" (forgotten import?)
+2022/11/17 07:08:22 [FATAL] can not connect to db golang_heroku leader: localhost on port %!d(string=5432), with error sql: unknown driver "postgres" (forgotten import?)
+2022/11/17 07:13:54 [FATAL] can not connect to db golang_heroku leader: localhost on port 5432, with error sql: unknown driver "postgres" (forgotten import?)
+2022/11/17 07:14:50 [FATAL] can not connect to db golang_heroku leader: localhost on port 5432, with error sql: unknown driver "postgres" (forgotten import?)
+2022/11/17 07:15:48 [FATAL] can not connect to db golang_heroku leader: localhost on port 5432, with error sql: unknown driver "postgres" (forgotten import?)
+2022/11/17 07:17:18 [FATAL] can not connect to db golang_heroku leader: localhost on port 5432, with error sql: unknown driver "postgres" (forgotten import?)
+2022/11/17 07:20:38 [FATAL] can not connect to db golang_heroku leader: localhost on port 5432, with error sql: unknown driver "postgres" (forgotten import?)
+2022/11/17 07:22:08 [FATAL] can not connect to db golang_heroku leader: localhost on port 5432, with error sql: unknown driver "postgres" (forgotten import?)
+2022/11/17 07:24:04 [FATAL] can not connect to db golang_heroku leader: localhost on port 5432, with error pq: password authentication failed for user "postgres"
+2022/11/17 07:27:31 [FATAL] can not connect to db  leader:  on port , with error dial tcp: lookup port=: no such host
+2022/11/17 07:35:05 [FATAL] can not connect to db  leader:  on port , with error dial tcp: lookup port=: no such host
+2022/11/17 07:35:49 [FATAL] can not connect to db  leader:  on port , with error dial tcp: lookup port=: no such host
+2022/11/17 07:37:03 [FATAL] can not connect to db  leader:  on port , with error dial tcp: lookup port=: no such host
+2022/11/17 07:37:52 [FATAL] can not connect to db  leader:  on port , with error dial tcp: lookup port=: no such host

@@ -1,9 +1,9 @@
 package rest
 
 import (
-	"azura-test/src/entity"
 	"encoding/json"
 	"fmt"
+	"golang-heroku/src/entity"
 	"net/http"
 	"time"
 
