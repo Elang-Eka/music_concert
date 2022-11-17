@@ -3,13 +3,12 @@ module golang-heroku
 // +heroku goVersion go1.17
 go 1.17
 
-require github.com/go-sql-driver/mysql v1.6.0
-
 require (
-	github.com/joho/godotenv v1.4.0 // indirect
-	github.com/lib/pq v1.10.7 // indirect
-	github.com/stretchr/testify v1.7.1 // indirect
+	github.com/go-sql-driver/mysql v1.6.0
+	github.com/lib/pq v1.10.7
 )
+
+require github.com/stretchr/testify v1.7.1 // indirect
 
 require (
 	github.com/KyleBanks/depth v1.2.1 // indirect

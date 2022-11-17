@@ -1,1 +1,2 @@
-web: go main.go
+web:
+app
