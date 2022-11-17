@@ -1,1 +1,1 @@
-web: golang-heroku
+web: src/main
