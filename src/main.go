@@ -15,7 +15,6 @@ import (
 )
 
 func main() {
-	fmt.Println("HAIIII")
 	cfg := config.Init()
 	confreader := configreader.Init(configreader.Options{
 		Name: "conf",
