@@ -2,6 +2,7 @@ package configreader
 
 import (
 	"fmt"
+	"os"
 
 	"github.com/spf13/viper"
 )
@@ -31,6 +32,12 @@ func Init(opt Options) Interface {
 		fmt.Println("Name :", opt.Name)
 		fmt.Println("Type :", opt.Type)
 		fmt.Println("Path :", opt.Path)
+		pwd, err := os.Getwd()
+		if err != nil {
+			fmt.Println(err)
+			os.Exit(1)
+		}
+		fmt.Println("Dir now :", pwd)
 		panic(fmt.Errorf("fatal error found during reading file. err: %w", err))
 	}
 
