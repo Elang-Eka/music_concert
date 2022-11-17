@@ -7,6 +7,7 @@ import (
 	logCase "golang-heroku/src/business/usecases/log"
 	"golang-heroku/src/utils/config"
 	"golang-heroku/src/utils/configreader"
+	"os"
 
 	"github.com/gin-gonic/gin"
 	swaggerfiles "github.com/swaggo/files"
@@ -50,7 +51,8 @@ func (r *rest) Register() {
 }
 
 func (r *rest) Run() {
-	if err := r.http.Run(":8080"); err != nil {
+	port := os.Getenv("PORT")
+	if err := r.http.Run(":" + port); err != nil {
 		r.log.LogError(err.Error())
 	}
 }
