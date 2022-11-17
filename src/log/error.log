@@ -14,3 +14,5 @@
 2022/11/17 07:35:49 [FATAL] can not connect to db  leader:  on port , with error dial tcp: lookup port=: no such host
 2022/11/17 07:37:03 [FATAL] can not connect to db  leader:  on port , with error dial tcp: lookup port=: no such host
 2022/11/17 07:37:52 [FATAL] can not connect to db  leader:  on port , with error dial tcp: lookup port=: no such host
+2022/11/17 08:12:46 [FATAL] can not connect to db  leader:  on port , with error dial tcp: lookup port=: no such host
+2022/11/17 08:16:59 [FATAL] can not connect to db  leader:  on port , with error dial tcp: lookup port=: no such host

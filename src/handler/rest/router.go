@@ -50,7 +50,7 @@ func (r *rest) Register() {
 }
 
 func (r *rest) Run() {
-	if err := r.http.Run(":" + r.conf.Gin.Port); err != nil {
+	if err := r.http.Run(":8080"); err != nil {
 		r.log.LogError(err.Error())
 	}
 }
